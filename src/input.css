@@ -1,0 +1,345 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #555;
+  margin-top: 0;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+  text-rendering: optimizeSpeed;
+}
+/* defualt css */
+.trow {
+  @apply flex flex-wrap -mx-6;
+}
+.trow-gap {
+  @apply px-6;
+}
+.hover-enable {
+  @apply transition-all duration-150 ease-linear;
+}
+.heading h4 {
+  @apply border-b mb-6 uppercase leading-none;
+}
+.heading span {
+  @apply text-white py-1 px-2 leading-[26px] font-normal;
+}
+.posts .post-item {
+  @apply flex mb-5;
+}
+.posts .post-thumb {
+  @apply shrink-0 basis-[30%] w-[30%] mr-4;
+}
+.posts .post-item .content {
+  @apply flex flex-col;
+}
+.posts .post-item .title {
+  @apply text-black font-normal hover-enable;
+}
+.post-item:hover .title {
+  @apply text-primary;
+}
+/* header style #1 */
+header.style1 .head_top {
+  @apply hidden md:block border-b border-t-4 border-t-primary mb-2;
+}
+header.style1 .social {
+  @apply flex space-x-3 border-l pl-3 ml-3 py-3;
+}
+.main_head {
+  @apply flex justify-between items-center py-1.5;
+}
+header.style1 .logo {
+  @apply w-[100px];
+}
+.search_product {
+  @apply hidden md:flex flex-1 mx-12 relative;
+}
+header.style1 .input_search {
+  @apply outline-none h-12 w-full text-sm px-4 border rounded-xl focus:border-primary;
+}
+.search_btn {
+  @apply w-11 h-12 absolute top-0 right-0 flex items-center justify-center;
+}
+.search_result {
+  @apply hidden absolute top-10 left-0 bg-gray-800 p-4 w-full z-50;
+}
+.nav_menu {
+  @apply hidden md:block bg-secondary border border-b-gray-700;
+}
+.nav_menu ul {
+  @apply flex;
+}
+.nav_menu ul li a {
+  @apply block px-5 py-3 text-white uppercase border-l hover:bg-gray-800 hover:text-white;
+}
+.nav_menu .active {
+  @apply bg-gray-800;
+}
+header.style1 .search {
+  @apply bg-secondary/5 p-1.5 md:hidden my-1;
+}
+.mobile_side_menu {
+  @apply bg-gray-200 py-6 px-3 fixed top-0 -left-full transition-all duration-300 ease-in-out h-full w-full md:hidden z-50;
+}
+.mobile_side_menu.on {
+  @apply left-0;
+}
+.menu_show {
+  @apply md:hidden cursor-pointer w-10 h-10 text-xl flex items-center justify-center mr-2 text-gray-500;
+}
+.close_menu {
+  @apply cursor-pointer block w-10 h-10 text-4xl text-gray-400;
+}
+/* header style #1 */
+/* header style #2 */
+header.style2 .nav_menu {
+  @apply hidden md:block border-l;
+}
+header.style2 .nav_menu ul {
+  @apply flex;
+}
+header.style2 .nav_menu li a {
+  @apply relative block py-5 px-14 font-semibold border-r border-l-0 bg-inherit text-black hover:text-primary before:absolute before:inset-0 before:bg-primary before:scale-y-0 before:origin-bottom hover:before:scale-y-[0.1] before:transition-all before:duration-300;
+}
+header.style2 .nav_menu li:last-child a {
+  @apply border-none;
+}
+header.style2 .nav_menu .manu_search_btn a {
+  @apply text-[0] after:content-['\F0D1'] after:font-remix after:text-lg after:absolute leading-[24px];
+}
+/* header style #3 */
+header.style3 .input_search {
+  @apply outline-none h-12 w-full text-sm px-4 border  focus:border-primary;
+}
+/* header style #4 */
+header.style4 {
+  @apply py-4 shadow-lg;
+}
+header.style4 .logo {
+  @apply w-[200px];
+}
+header.style4 .menus ul {
+  @apply flex mt-4;
+}
+header.style4 .menus ul a {
+  @apply relative p-4 font-bold uppercase after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:w-0 after:m-auto after:bg-primary after:animate-translate3d  after:duration-200 hover:after:w-full;
+}
+header.style4 .menus li.current-menu-item a {
+  @apply after:w-full;
+}
+
+/* ============================
+            Footer
+=============================== */
+
+/* footer style 1 */
+footer.style1 {
+  @apply bg-black pt-10;
+}
+footer.style1 .footer_top {
+  @apply flex space-y-3 md:space-x-3 flex-col md:flex-row justify-between;
+}
+footer.style1 .footer_top .widget_title {
+  @apply capitalize text-xl text-white mb-6;
+}
+footer.style1 .footer_top .footer_menu li {
+  @apply inline-block w-[30%];
+}
+footer.style1 .footer_top .footer_menu li a {
+  @apply text-gray-400 block py-2 hover:text-primary;
+}
+footer.style1 .social_link {
+  @apply w-9 h-9 rounded-full bg-gray-100 flex justify-center items-center;
+}
+
+/* footer style 2 */
+footer.style2 {
+  @apply bg-gray-950 pt-10;
+}
+footer.style2 .widget_title {
+  @apply capitalize text-xl text-white mb-6;
+}
+footer.style2 .contact p {
+  @apply flex items-center my-4 leading-4 text-sm;
+}
+footer.style2 .icon {
+  @apply w-8 h-8 mr-2 border border-secondary rounded-sm flex items-center justify-center text-secondary flex-shrink-0;
+}
+footer.style2 .contact p {
+  @apply text-gray-400;
+}
+footer.style2 .footer_menu a {
+  @apply text-gray-400 text-sm hover:text-secondary;
+}
+
+/* footer style 3 */
+footer.style3 {
+  @apply relative before:absolute before:left-0 before:top-0 before:w-[38%] before:h-4 md:before:h-full md:before:bg-primary before:bg-gray-900;
+}
+footer.style3 .widget_title {
+  @apply relative text-white text-xl mb-8 before:absolute before:h-1 before:w-8 before:-bottom-3 before:left-0 before:bg-primary;
+}
+footer.style3 .footer_menu li a {
+  @apply capitalize block py-1 text-base font-semibold text-gray-300 hover:text-gray-100;
+}
+footer.style3 .social-link {
+  @apply w-10 h-10 bg-gray-800 hover:bg-gray-950 flex justify-center items-center rounded-full;
+}
+/* footer style 4 */
+footer.style4 {
+  @apply bg-[url('../../images/footer_bg.jpg')] bg-no-repeat bg-cover relative after:inset-0 after:w-full after:h-full after:absolute after:z-10 after:bg-black/40;
+}
+.posts .f_thumb {
+  @apply w-32 h-20 object-cover mr-3 overflow-hidden;
+}
+.f_catList a {
+  @apply text-white hover:text-primary transition-all duration-150 mb-3 block;
+}
+.followup a {
+  @apply w-10 h-10 flex items-center justify-center bg-white/20 text-white hover:text-primary duration-150 transition-all;
+}
+
+/* blog */
+.post-thumb img {
+  @apply w-full;
+}
+.section-title {
+  @apply border-b border-black;
+}
+.section-title span {
+  @apply bg-black text-white px-2 py-1;
+}
+.widgets-area aside {
+  @apply mb-6;
+}
+.widgets-area .widget li {
+  @apply mb-6 pb-4 border-b border-dashed border-gray-300;
+}
+.share-btn {
+  @apply border p-2 flex items-center w-fit relative 
+  before:absolute before:top-1/2 before:left-full 
+  before:-translate-y-1/2 before:border-[9px] before:border-l-gray-300 
+  before:border-t-transparent before:border-b-transparent before:border-r-0
+  after:absolute after:top-1/2 after:left-full 
+  after:-translate-y-1/2 after:border-[8px] after:border-l-white 
+  after:border-t-transparent after:border-b-transparent after:border-r-0;
+}
+.social-share .share {
+  @apply w-10 h-10 text-white flex items-center justify-center hover:opacity-80 rounded-sm;
+}
+.social-share .share.fb {
+  @apply bg-blue-950;
+}
+.social-share .share.tx {
+  @apply bg-sky-500;
+}
+.social-share .share.in {
+  @apply bg-red-500;
+}
+.social-share .share.wh {
+  @apply bg-green-800;
+}
+.icon_comment .avatar {
+  @apply float-left mr-6 mb-6 w-[50px];
+}
+.icon_comment .url {
+  @apply font-bold;
+}
+.icon_comment .comment-link {
+  @apply text-gray-400 text-xs;
+}
+.icon_comment .comment-reply-link {
+  @apply text-gray-400 text-xs;
+}
+.icon_comment {
+  @apply border-b border-dashed mb-4 py-3;
+}
+.replay__box input[type="text"],
+.replay__box input[type="url"],
+.replay__box input[type="tel"],
+.replay__box input[type="email"] {
+  @apply text-sm text-gray-400 border w-full h-[34px] px-4 py-1 focus:border-gray-400 outline-none;
+}
+.replay__box textarea {
+  @apply text-sm text-gray-400 border w-full h-[140px] px-4 py-1 focus:border-gray-400 outline-none;
+}
+.comment-form-input-wrap {
+  @apply mb-5;
+}
+.comment-submit {
+  @apply bg-black py-1 px-3 text-white hover:bg-primary transition-all duration-150;
+}
+/* front page */
+
+.post-content img {
+  @apply hover-enable;
+}
+.post-content:hover img {
+  transform: scale(1.1);
+}
+.post-content .cat_name {
+  @apply hover-enable;
+}
+.post-content:hover .cat_name {
+  @apply bg-primary;
+}
+.news-widget {
+  @apply mb-12;
+}
+.post-item .cat_name {
+  @apply bg-black px-1 uppercase text-white text-sm absolute left-0 bottom-0 z-20;
+}
+.news-carousel .post-item {
+  @apply overflow-hidden;
+}
+button.slick-arrow {
+  @apply border border-solid border-green-950 hover:bg-gray-950 hover:text-white hover-enable w-6 h-6 z-30 bottom-0;
+}
+.news-carousel .slick-prev {
+  @apply left-2 top-auto before:font-remix before:content-["\EA64"] before:text-gray-800 before:hover:text-white;
+}
+.news-carousel .slick-next {
+  @apply left-10 top-auto before:font-remix before:content-["\EA6E"] before:text-gray-800 before:hover:text-white;
+}
+.news-carousel .post-item {
+  @apply px-2;
+}
+
+/* front page */
+/* footer */
+.footer-menu li {
+  @apply md:inline-block md:w-[30%];
+}
+.footer-menu li a {
+  @apply capitalize text-sm text-gray-400 hover:text-gray-100;
+}
+.social-link {
+  @apply w-10 h-10 bg-gray-300 hover:bg-gray-400 flex justify-center items-center rounded-full;
+}
+
+/* wodpress */
+.entry-content h1 {
+  @apply text-4xl;
+}
+.entry-content h2 {
+  @apply text-3xl;
+}
+.entry-content h3 {
+  @apply text-2xl;
+}
+.entry-content h4 {
+  @apply text-xl;
+}
+.entry-content h5 {
+  @apply text-lg;
+}
+.entry-content h6 {
+  @apply text-base;
+}
