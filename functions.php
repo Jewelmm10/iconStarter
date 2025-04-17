@@ -76,3 +76,55 @@ function icon_starter() {
 
 // Kick-off the theme
 icon_starter();
+
+// Register the shortcode
+function form_shortcode() {
+    ob_start();
+    ?>
+    <form method="post">
+        <p>
+            <label for="username">Username:</label>
+            <input type="text" name="korim2_username" required />
+        </p>
+        <p>
+            <label for="email">Email:</label>
+            <input type="email" name="korim2_email" required />
+        </p>
+        <p>
+            <button type="submit" name="form_submit">Submit</button>
+        </p>
+    </form>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('text_form', 'form_shortcode');
+
+
+add_action('init', 'handle_form_submit');
+function handle_form_submit() {
+    if (isset($_POST['form_submit'])) {
+        $name = sanitize_text_field($_POST['korim2_username']);
+        $email = sanitize_email($_POST['korim2_email']);
+
+        // Database credentials (same server)
+        $servername = 'localhost';
+        $dbuser = 'edbdserv_fortune';
+        $dbpass = ']aoAEN+6NW#{';
+        $dbname = 'edbdserv_fortune';
+
+        // Connect to korim2 database
+        $mysqli = new mysqli($servername, $dbuser, $dbpass, $dbname);
+
+        if ($mysqli->connect_error) {
+            error_log("DB connection failed: " . $mysqli->connect_error);
+            return;
+        }
+
+        $stmt = $mysqli->prepare("INSERT INTO tig_user (name, email) VALUES (?, ?)");
+        $stmt->bind_param("ss", $name, $email);
+        $stmt->execute();
+
+        $stmt->close();
+        $mysqli->close();
+    }
+}

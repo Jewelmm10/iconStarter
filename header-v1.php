@@ -27,10 +27,14 @@
         <div class="head_top">
             <div class="container flex justify-end items-center">
                 <div class="header-notice">
-                    <p class="text-xs">Need help? <span>Contact us:</span>
-                        <a class="font-semibold hover:text-primary" href="mailto:demo@gmail.com">demo@gmail.com</a>
-                    </p>
+                    <p class="text-xs top_text"><?php echo apply_filters('icon_top_bar_text', ''); ?></p>
                 </div>
+                <?php $socials = apply_filters('icon_top_social_icons', '');
+                echo "<pre>";
+                    var_dump($socials['top_social_icons']);
+                echo "</pre>";
+                     
+                ?>
                 <div class="social">
                     <a href="#"><i class="ri-facebook-fill"></i></a>
                     <a href="#"><i class="ri-twitter-x-line"></i></a>
@@ -42,10 +46,29 @@
             <div class="main_head">
                 <div class="logo">
                     <?php
-                        if ( function_exists( 'the_custom_logo' ) ) {
-                            the_custom_logo();
-                        }
-                    ?>
+				if( has_custom_logo() ) {
+					$logo     = get_theme_mod( 'custom_logo' );
+					$logo_url = wp_get_attachment_image_url( $logo, 'full' );
+				?>
+                    <a class="logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                        <img src="<?php echo $logo_url ?>">
+                    </a>
+                    <?php
+					} elseif( class_exists( 'Redux' ) ) {			
+				?>
+                    <a class="logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                        <?php 
+						$default_logo_html = '<img src="' . get_template_directory_uri() . '/images/je.png">';
+						echo apply_filters( 'iconstarter_display_logo', $default_logo_html );
+					?>
+                    </a>
+                    <?php } else { ?>
+                    <h2>
+                        <a class="logo-link"
+                            href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo bloginfo( 'name' ); ?></a>
+                    </h2>
+
+                    <?php } ?>
                 </div>
                 <form action="" method="get" class="search_product">
                     <input id="search_input" class="input_search" type="text"
@@ -68,6 +91,10 @@
                             </div>
                         </div>
                     </div>
+                    <?php
+                        $enable = apply_filters( 'icon_header_account_enable', true ); 
+                        if( $enable ) {
+                    ?>
                     <div class="w-1/2">
                         <div class="ml-6 flex items-center">
                             <i class="text-2xl text-primary mr-3 ri-user-line"></i>
@@ -77,6 +104,7 @@
                             </a>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
                 <div class="menu_show">
                     <i class="ri-menu-line"></i>
@@ -84,15 +112,17 @@
             </div>
         </div>
         <nav class="nav_menu">
-            <div class="container">
-                <ul>
-                    <li><a class="active" href="#">Home</a></li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact us</a></li>
-                </ul>
-            </div>
+            <?php if ( has_nav_menu( 'primary' ) ) : 
+            wp_nav_menu(
+                array(
+                    'theme_location'  => 'primary',
+                    'container_class' => 'container',
+                )
+            );
+        ?>
+            <?php endif; ?>
         </nav>
+
         <div class="search">
             <form action="" method="get" autocomplete="off" class="!block search_product">
                 <input id="search-input" class="input_search" type="text" placeholder="Search by name, category, brand"
@@ -110,20 +140,43 @@
             <div class="text-center flex justify-between">
                 <div class="logo">
                     <?php
-                        if ( function_exists( 'the_custom_logo' ) ) {
-                            the_custom_logo();
-                        }
-                    ?>
+				if( has_custom_logo() ) {
+					$logo     = get_theme_mod( 'custom_logo' );
+					$logo_url = wp_get_attachment_image_url( $logo, 'full' );
+				?>
+                    <a class="logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                        <img src="<?php echo $logo_url ?>">
+                    </a>
+                    <?php
+					} elseif( class_exists( 'Redux' ) ) {			
+				?>
+                    <a class="logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                        <?php 
+						$default_logo_html = '<img src="' . get_template_directory_uri() . '/images/je.png">';
+						echo apply_filters( 'iconstarter_display_logo', $default_logo_html );
+					?>
+                    </a>
+                    <?php } else { ?>
+                    <h2>
+                        <a class="logo-link"
+                            href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo bloginfo( 'name' ); ?></a>
+                    </h2>
+
+                    <?php } ?>
                 </div>
                 <span class="close_menu"><i class="ri-close-line"></i></span>
             </div>
             <nav class="my-6">
-                <ul class="flex flex-col">
-                    <li><a class="active" href="#">Home</a></li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact us</a></li>
-                </ul>
+                <?php if ( has_nav_menu( 'primary' ) ) : 
+                    wp_nav_menu(
+                        array(
+                            'theme_location'  => 'primary',
+                            'menu_class'      => 'flex flex-col',
+                            'container_class' => ' ',
+                        )
+                    );
+                ?>
+                <?php endif; ?>
             </nav>
         </div>
     </header>

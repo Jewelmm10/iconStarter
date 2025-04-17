@@ -28,6 +28,6 @@ require get_template_directory() . '/inc/woocommerce/template-tags.php';
 /**
  * Redux Framework
  */
-// require get_template_directory() . '/inc/redux-framework/functions.php';
-// require get_template_directory() . '/inc/redux-framework/hooks.php';
-// require get_template_directory() . '/inc/redux-framework/jawad-options.php';
+require get_template_directory() . '/inc/redux-framework/functions.php';
+require get_template_directory() . '/inc/redux-framework/hooks.php';
+require get_template_directory() . '/inc/redux-framework/theme-options.php';

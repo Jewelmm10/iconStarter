@@ -26,6 +26,51 @@ $header_options = apply_filters( 'jawad_options_sections_args', [
             'default'   => 0,
         ],	
         [
+        	'title'		=> esc_html__( 'Top header Text', 'iconstarter' ),
+        	'id'		=> 'top_bar_text',
+        	'type'		=> 'editor',
+            'args'   => array(
+                'media_buttons'    => false,
+            ),
+        	'default'	=> 'Need help? Contact us: demo@gmail.com',
+        ],
+        [
+            'id'        => 'top_social_icons',
+            'type'      => 'repeater',
+            'title'     => 'Social Icons',
+            'subtitle'  => 'Add and reorder your social icons with URLs.',
+            'sortable'  => true, 
+            'fields'    => [
+                [
+                    'id'       => 'label',
+                    'type'     => 'text',
+                    'title'    => 'Label',
+                    'placeholder' => 'e.g. Facebook',
+                ],
+                [
+                    'id'       => 'icon',
+                    'type'     => 'select',
+                    'title'    => 'Choose Icon',
+                    'options'  => [
+                        'ri-facebook-fill'    => 'Facebook',
+                        'ri-twitter-fill'     => 'Twitter',
+                        'ri-instagram-line'   => 'Instagram',
+                        'ri-linkedin-box-fill'=> 'LinkedIn',
+                        'ri-github-fill'      => 'GitHub',
+                        'ri-youtube-fill'     => 'YouTube',
+                        'ri-pinterest-line'   => 'Pinterest',
+                    ],
+                    'default' => 'ri-facebook-fill',
+                ],                
+                [
+                    'id'       => 'url',
+                    'type'     => 'text',
+                    'title'    => 'URL',
+                    'placeholder' => 'e.g. https://facebook.com/yourpage',
+                ],
+            ],
+        ],            
+        [
 		    'id'     => 'top_bar_end',
 		    'type'   => 'section',
 		    'indent' => false,
@@ -44,7 +89,8 @@ $header_options = apply_filters( 'jawad_options_sections_args', [
             'options'   => array(
                 'v1' => 'Header v1',
                 'v2' => 'Header v2',
-                'v3' => 'Header v3'
+                'v3' => 'Header v3',
+                'v4' => 'Header v4'
             ),
         	'default'	=> 'v2',
         ],	
@@ -55,17 +101,22 @@ $header_options = apply_filters( 'jawad_options_sections_args', [
             'default'   => 1,
         ],
         [
-        	'title'		=> esc_html__( 'Call us icon', 'jawad' ),
-        	'subtitle'	=> esc_html__( 'Use font Awesome 5 free', 'jawad'),
-        	'id'		=> 'header_call_us_icon',
-        	'type'		=> 'text',
-        	'default'	=> 'fas fa-phone-alt',
-        ],
-        [
         	'title'		=> esc_html__( 'Call us number', 'jawad' ),
         	'id'		=> 'header_call_us_number',
         	'type'		=> 'text',
         	'default'	=> '+8801XXXXXXXXX',
+        ],
+        [
+        	'title'		=> esc_html__( 'Call us text', 'jawad' ),
+        	'id'		=> 'header_call_text',
+        	'type'		=> 'text',
+        	'default'	=> 'Call Us Now',
+        ],
+        [
+            'title'     => esc_html__( 'Show Header My Account', 'jawad' ),
+            'id'        => 'header_account_enable',
+            'type'      => 'switch',
+            'default'   => 1,
         ],
         [
             'id'     => 'masthead_end',

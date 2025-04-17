@@ -26,9 +26,9 @@ function redux_queue_font_awesome() {
  */
 if ( ! function_exists( 'rx_apply_favicon' ) ) {
     function rx_apply_favicon( $favicon_url ) {
-        global $jawad_options;
+        global $theme_Options;
 
-        $favicon_url = $jawad_options['favicon']['url'];
+        $favicon_url = $theme_Options['favicon']['url'];
 
         return $favicon_url;
     }
@@ -39,10 +39,10 @@ if ( ! function_exists( 'rx_apply_favicon' ) ) {
  */
 if ( ! function_exists( 'rx_apply_logo' ) ) {
     function rx_apply_logo( $logo ) {
-        global $jawad_options;
+        global $theme_Options;
 
-        if ( ! empty( $jawad_options['logo']['url'] ) ) {            
-            $logo = '<img alt="Mohammad-Jewel" src="' . $jawad_options['logo']['url'] . '"/>';           
+        if ( ! empty( $theme_Options['logo']['url'] ) ) {            
+            $logo = '<img alt="Mohammad-Jewel" src="' . $theme_Options['logo']['url'] . '"/>';           
         }       
 
         return $logo;
@@ -54,10 +54,10 @@ if ( ! function_exists( 'rx_apply_logo' ) ) {
  */
 if ( ! function_exists( 'rx_apply_breadcrumb_img' ) ) {
     function rx_apply_breadcrumb_img( $breadcrumb_img ) {
-        global $jawad_options;
+        global $theme_Options;
 
-        if ( ! empty( $jawad_options['breadcrumb_img']['url'] ) ) {            
-            $breadcrumb_img = 'style="background-image:url(' . $jawad_options['breadcrumb_img']['url'] .')"';           
+        if ( ! empty( $theme_Options['breadcrumb_img']['url'] ) ) {            
+            $breadcrumb_img = 'style="background-image:url(' . $theme_Options['breadcrumb_img']['url'] .')"';           
         }       
 
         return $breadcrumb_img;
@@ -70,25 +70,51 @@ if ( ! function_exists( 'rx_apply_breadcrumb_img' ) ) {
 if( ! function_exists( 'rx_toggle_scroll_switch' ) ) {
     
     function rx_toggle_scroll_switch( $enable ) {
-        global $jawad_options;
+        global $theme_Options;
         
-        if( isset( $jawad_options['scroll_to_top'] ) ) {
-            $enable = $jawad_options['scroll_to_top'];
+        if( isset( $theme_Options['scroll_to_top'] ) ) {
+            $enable = $theme_Options['scroll_to_top'];
         }
 
         return $enable;
     }
 }
+/**
+ * Top header text
+ */
+if ( ! function_exists( 'rx_apply_top_bar_text' ) ) {
+    function rx_apply_top_bar_text( $text ) {
+        global $theme_Options;
 
+        if ( isset( $theme_Options['top_bar_text'] ) ) {
+            $text = $theme_Options['top_bar_text'];
+        }
+
+        return $text;
+    }
+}
+/**
+ * Top social icons
+ */
+if ( ! function_exists( 'rx_apply_top_social_icons' ) ) {
+    function rx_apply_top_social_icons() {
+        global $theme_Options;
+
+        if ( isset( $theme_Options['icon'] ) ) {
+            $socials = $theme_Options['icon'];
+        }        
+        return $theme_Options;
+    }
+}
 /**
  * Display header call us
  */
 if ( ! function_exists('rx_apply_header_call_us_switch' ) ) {
     function rx_apply_header_call_us_switch( $enable ){
-       global $jawad_options;
+       global $theme_Options;
  
-       if ( isset( $jawad_options['header_call_us_enable'] ) ) {
-           $enable = $jawad_options['header_call_us_enable'];
+       if ( isset( $theme_Options['header_call_us_enable'] ) ) {
+           $enable = $theme_Options['header_call_us_enable'];
        }
 
        return $enable;
@@ -100,10 +126,10 @@ if ( ! function_exists('rx_apply_header_call_us_switch' ) ) {
  */
 if ( ! function_exists('rx_apply_header_style' ) ) {
     function rx_apply_header_style( $text ){
-       global $jawad_options;
+       global $theme_Options;
  
-       if ( isset( $jawad_options['header_style'] ) ) {
-            $header_style = $jawad_options['header_style'];
+       if ( isset( $theme_Options['header_style'] ) ) {
+            $header_style = $theme_Options['header_style'];
         }
         return $header_style;
     }
@@ -113,10 +139,10 @@ if ( ! function_exists('rx_apply_header_style' ) ) {
  */
 if ( ! function_exists( 'rx_apply_header_call_us_icon' ) ) {
     function rx_apply_header_call_us_icon( $text ) {
-        global $jawad_options;
+        global $theme_Options;
 
-        if ( isset( $jawad_options['header_call_us_icon'] ) ) {
-            $text = $jawad_options['header_call_us_icon'];
+        if ( isset( $theme_Options['header_call_us_icon'] ) ) {
+            $text = $theme_Options['header_call_us_icon'];
         }
 
         return $text;
@@ -128,25 +154,39 @@ if ( ! function_exists( 'rx_apply_header_call_us_icon' ) ) {
  */
 if ( ! function_exists( 'rx_apply_header_call_us_number' ) ) {
     function rx_apply_header_call_us_number( $number ) {
-        global $jawad_options;
+        global $theme_Options;
 
-        if ( isset( $jawad_options['header_call_us_number'] ) ) {
-            $number = $jawad_options['header_call_us_number'];
+        if ( isset( $theme_Options['header_call_us_number'] ) ) {
+            $number = $theme_Options['header_call_us_number'];
         }
 
         return $number;
     }
 }
+/**
+ * Enable header account
+ */
+if( ! function_exists( 'rx_apply_header_account_switch' ) ) {
+    
+    function rx_apply_header_account_switch( $enable ) {
+        global $theme_Options;
+        
+        if( isset( $theme_Options['header_account_enable'] ) ) {
+            $enable = $theme_Options['header_account_enable'];
+        }
 
+        return $enable;
+    }
+}
 /**
  * Display blog page title
  */
 if ( ! function_exists( 'rx_apply_blog_page_title' ) ) {
     function rx_apply_blog_page_title( $text ) {
-        global $jawad_options;
+        global $theme_Options;
         
-        if ( isset( $jawad_options['blog_page_text'] ) ) {
-            $text = $jawad_options['blog_page_text'];
+        if ( isset( $theme_Options['blog_page_text'] ) ) {
+            $text = $theme_Options['blog_page_text'];
         }
 
         return $text;
@@ -158,10 +198,10 @@ if ( ! function_exists( 'rx_apply_blog_page_title' ) ) {
  */
 if ( ! function_exists( 'rx_apply_blog_sidebar' ) ) {
     function rx_apply_blog_sidebar( $sidebar ) {
-        global $jawad_options;
+        global $theme_Options;
 
-        if ( isset( $jawad_options['blog_sidebar'] ) ) {
-            $sidebar = $jawad_options['blog_sidebar'];
+        if ( isset( $theme_Options['blog_sidebar'] ) ) {
+            $sidebar = $theme_Options['blog_sidebar'];
         }
 
         return $sidebar;
@@ -173,10 +213,10 @@ if ( ! function_exists( 'rx_apply_blog_sidebar' ) ) {
  */
 if ( ! function_exists( 'rx_apply_single_post_layout' ) ) {
     function rx_apply_single_post_layout( $sidebar ) {
-        global $jawad_options;
+        global $theme_Options;
 
-        if ( isset( $jawad_options['single_sidebar'] ) ) {
-            $sidebar = $jawad_options['single_sidebar'];
+        if ( isset( $theme_Options['single_sidebar'] ) ) {
+            $sidebar = $theme_Options['single_sidebar'];
         }
 
         return $sidebar;
@@ -188,10 +228,10 @@ if ( ! function_exists( 'rx_apply_single_post_layout' ) ) {
  */
 if ( ! function_exists( 'rx_apply_author_toggle' ) ) {
     function rx_apply_author_toggle( $author ) {
-        global $jawad_options;
+        global $theme_Options;
 
-        if ( isset( $jawad_options['blog_author'] ) ) {
-            $author = $jawad_options['blog_author'];
+        if ( isset( $theme_Options['blog_author'] ) ) {
+            $author = $theme_Options['blog_author'];
         }
 
         return $author;
@@ -207,10 +247,10 @@ if ( ! function_exists( 'rx_apply_author_toggle' ) ) {
  */
 if ( ! function_exists( 'rx_apply_footer_style') ) {
     function rx_apply_footer_style( $text ){
-        global $jawad_options;
+        global $theme_Options;
   
-        if ( isset( $jawad_options['footer_style'] ) ) {
-             $footer_style = $jawad_options['footer_style'];
+        if ( isset( $theme_Options['footer_style'] ) ) {
+             $footer_style = $theme_Options['footer_style'];
          }
          return $footer_style;
      }
@@ -220,9 +260,9 @@ if ( ! function_exists( 'rx_apply_footer_style') ) {
  */
 if ( ! function_exists( 'rx_apply_footer_contact_switch') ) {
     function rx_apply_footer_contact_switch( $enable ) {
-        global $jawad_options;
-        if ( isset( $jawad_options['footer_contact_enable'] ) ) {
-            $enable = $jawad_options['footer_contact_enable'];
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_contact_enable'] ) ) {
+            $enable = $theme_Options['footer_contact_enable'];
         }
 
         return $enable;
@@ -234,9 +274,9 @@ if ( ! function_exists( 'rx_apply_footer_contact_switch') ) {
  */
 if ( ! function_exists( 'rx_apply_footer_call_us_icon') ) {
     function rx_apply_footer_call_us_icon( $icon ) {
-        global $jawad_options;
-        if ( isset( $jawad_options['footer_call_us_icon'] ) ) {
-            $icon = $jawad_options['footer_call_us_icon'];
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_call_us_icon'] ) ) {
+            $icon = $theme_Options['footer_call_us_icon'];
         }
 
         return $icon;
@@ -245,9 +285,9 @@ if ( ! function_exists( 'rx_apply_footer_call_us_icon') ) {
 
 if ( ! function_exists( 'rx_apply_footer_call_us_number') ) {
     function rx_apply_footer_call_us_number( $number ) {
-        global $jawad_options;
-        if ( isset( $jawad_options['footer_call_us_number'] ) ) {
-            $number = $jawad_options['footer_call_us_number'];
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_call_us_number'] ) ) {
+            $number = $theme_Options['footer_call_us_number'];
         }
 
         return $number;
@@ -256,9 +296,9 @@ if ( ! function_exists( 'rx_apply_footer_call_us_number') ) {
 
 if ( ! function_exists( 'rx_apply_footer_call_us_text') ) {
     function rx_apply_footer_call_us_text( $text ) {
-        global $jawad_options;
-        if ( isset( $jawad_options['footer_call_us_text'] ) ) {
-            $text = $jawad_options['footer_call_us_text'];
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_call_us_text'] ) ) {
+            $text = $theme_Options['footer_call_us_text'];
         }
 
         return $text;
@@ -270,9 +310,9 @@ if ( ! function_exists( 'rx_apply_footer_call_us_text') ) {
  */
 if ( ! function_exists( 'rx_apply_footer_email_icon') ) {
     function rx_apply_footer_email_icon( $icon ) {
-        global $jawad_options;
-        if ( isset( $jawad_options['footer_email_icon'] ) ) {
-            $icon = $jawad_options['footer_email_icon'];
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_email_icon'] ) ) {
+            $icon = $theme_Options['footer_email_icon'];
         }
 
         return $icon;
@@ -281,9 +321,9 @@ if ( ! function_exists( 'rx_apply_footer_email_icon') ) {
 
 if ( ! function_exists( 'rx_apply_footer_email') ) {
     function rx_apply_footer_email( $email ) {
-        global $jawad_options;
-        if ( isset( $jawad_options['footer_email'] ) ) {
-            $email = $jawad_options['footer_email'];
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_email'] ) ) {
+            $email = $theme_Options['footer_email'];
         }
 
         return $email;
@@ -292,9 +332,9 @@ if ( ! function_exists( 'rx_apply_footer_email') ) {
 
 if ( ! function_exists( 'rx_apply_footer_email_text') ) {
     function rx_apply_footer_email_text( $text ) {
-        global $jawad_options;
-        if ( isset( $jawad_options['footer_email_text'] ) ) {
-            $text = $jawad_options['footer_email_text'];
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_email_text'] ) ) {
+            $text = $theme_Options['footer_email_text'];
         }
 
         return $text;
@@ -306,9 +346,9 @@ if ( ! function_exists( 'rx_apply_footer_email_text') ) {
  */
 if ( ! function_exists( 'rx_apply_footer_address_icon') ) {
     function rx_apply_footer_address_icon( $icon ) {
-        global $jawad_options;
-        if ( isset( $jawad_options['footer_address_icon'] ) ) {
-            $icon = $jawad_options['footer_address_icon'];
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_address_icon'] ) ) {
+            $icon = $theme_Options['footer_address_icon'];
         }
 
         return $icon;
@@ -317,9 +357,9 @@ if ( ! function_exists( 'rx_apply_footer_address_icon') ) {
 
 if ( ! function_exists( 'rx_apply_footer_address') ) {
     function rx_apply_footer_address( $address ) {
-        global $jawad_options;
-        if ( isset( $jawad_options['footer_address'] ) ) {
-            $address = $jawad_options['footer_address'];
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_address'] ) ) {
+            $address = $theme_Options['footer_address'];
         }
 
         return $address;
@@ -328,9 +368,9 @@ if ( ! function_exists( 'rx_apply_footer_address') ) {
 
 if ( ! function_exists( 'rx_apply_footer_address_text') ) {
     function rx_apply_footer_address_text( $text ) {
-        global $jawad_options;
-        if ( isset( $jawad_options['footer_address_text'] ) ) {
-            $text = $jawad_options['footer_address_text'];
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_address_text'] ) ) {
+            $text = $theme_Options['footer_address_text'];
         }
 
         return $text;
@@ -342,9 +382,9 @@ if ( ! function_exists( 'rx_apply_footer_address_text') ) {
  */
 if ( ! function_exists( 'rx_apply_footer_logo_switch') ) {
     function rx_apply_footer_logo_switch( $enable ) {
-        global $jawad_options;
-        if ( isset( $jawad_options['footer_logo_enable'] ) ) {
-            $enable = $jawad_options['footer_logo_enable'];
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_logo_enable'] ) ) {
+            $enable = $theme_Options['footer_logo_enable'];
         }
 
         return $enable;
@@ -356,10 +396,10 @@ if ( ! function_exists( 'rx_apply_footer_logo_switch') ) {
  */
 if ( ! function_exists( 'rx_apply_footer_logo') ) {
     function rx_apply_footer_logo( $logo ) {
-        global $jawad_options;
-        if ( isset( $jawad_options['footer_logo']['url'] ) ) {
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_logo']['url'] ) ) {
 
-            $logo = '<img src="' . $jawad_options['footer_logo']['url'] . '" class="footer_logo" alt="Mohammad-Jewel">';           
+            $logo = '<img src="' . $theme_Options['footer_logo']['url'] . '" class="footer_logo" alt="Mohammad-Jewel">';           
         }
 
         return $logo;
@@ -371,9 +411,9 @@ if ( ! function_exists( 'rx_apply_footer_logo') ) {
  */
 if ( ! function_exists( 'rx_apply_footer_description') ) {
     function rx_apply_footer_description( $description ) {
-        global $jawad_options;
-        if ( isset( $jawad_options['f_desc'] ) ) {
-            $description = $jawad_options['f_desc'];           
+        global $theme_Options;
+        if ( isset( $theme_Options['f_desc'] ) ) {
+            $description = $theme_Options['f_desc'];           
         }
 
         return $description;
@@ -385,9 +425,9 @@ if ( ! function_exists( 'rx_apply_footer_description') ) {
  */
 if ( ! function_exists( 'rx_footer_social_icons_switch' ) ) {
     function rx_footer_social_icons_switch($enable) {
-        global $jawad_options;
-        if ( isset( $jawad_options['show_footer_social_icons'] ) ) {
-            $enable = $jawad_options['show_footer_social_icons'];
+        global $theme_Options;
+        if ( isset( $theme_Options['show_footer_social_icons'] ) ) {
+            $enable = $theme_Options['show_footer_social_icons'];
         }
         return $enable;
     }
@@ -398,9 +438,9 @@ if ( ! function_exists( 'rx_footer_social_icons_switch' ) ) {
  */
 if ( ! function_exists( 'rx_footer_credit_switch' ) ) {
     function rx_footer_credit_switch($enable) {
-        global $jawad_options;
-        if ( isset( $jawad_options['footer_credit_block_enable'] ) ) {
-            $enable = $jawad_options['footer_credit_block_enable'];
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_credit_block_enable'] ) ) {
+            $enable = $theme_Options['footer_credit_block_enable'];
         }
         return $enable;
     }
@@ -411,9 +451,9 @@ if ( ! function_exists( 'rx_footer_credit_switch' ) ) {
  */
 if ( ! function_exists( 'rx_footer_credit' ) ) {
     function rx_footer_credit($text) {
-        global $jawad_options;
-        if ( isset( $jawad_options['footer_credit'] ) ) {
-            $text = $jawad_options['footer_credit'];
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_credit'] ) ) {
+            $text = $theme_Options['footer_credit'];
         }
         return $text;
     }
@@ -424,7 +464,7 @@ if ( ! function_exists( 'rx_footer_credit' ) ) {
  */
 if ( ! function_exists( 'rx_apply_social_networks' ) ) {
     function rx_apply_social_networks( $social_icons ) {
-        global $jawad_options;
+        global $theme_Options;
 
         $social_icons = array(
             'fb_link'      => array(
@@ -469,8 +509,8 @@ if ( ! function_exists( 'rx_apply_social_networks' ) ) {
         );
        
         foreach( $social_icons as $key => $social_icon ) {
-            if( ! empty( $jawad_options[$key] ) ) {
-                $social_icons[$key]['link'] = $jawad_options[$key];
+            if( ! empty( $theme_Options[$key] ) ) {
+                $social_icons[$key]['link'] = $theme_Options[$key];
             }
         }      
 

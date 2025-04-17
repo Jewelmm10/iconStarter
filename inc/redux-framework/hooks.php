@@ -13,7 +13,9 @@ add_filter( 'jawad_is_enabled_scroll_top',                  'rx_toggle_scroll_sw
 add_filter( 'jawad_is_enabled_header_call_section',         'rx_apply_header_call_us_switch',   10 );
 add_filter( 'icon_header_style',                            'rx_apply_header_style',            10 );
 add_filter( 'jawad_call_us_icon',                           'rx_apply_header_call_us_icon',     10 );
-add_filter( 'jawad_call_us_number',                         'rx_apply_header_call_us_number',   10 );
+add_filter( 'icon_top_bar_text',                            'rx_apply_top_bar_text',            10 );
+add_filter( 'icon_top_social_icons',                        'rx_apply_top_social_icons',        10 );
+add_filter( 'icon_header_account_enable',                   'rx_apply_header_account_switch',   10 );
 
 /**
  * Blog options
@@ -55,4 +57,3 @@ add_action( 'jawad_footer_widget',                           'jawad_footer_logo'
 add_action( 'jawad_footer_widget',                           'jawad_footer_description',       20 );
 add_action( 'jawad_footer_widget',                           'jawad_footer_social_icons',      30 );
 add_filter( 'jawad_get_share_options',                       'rx_apply_social_networks',      10 );
-

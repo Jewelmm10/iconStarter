@@ -29,10 +29,29 @@
                 <div class="w-2/4 md:w-1/4">
                     <div class="logo">
                         <?php
-                        if ( function_exists( 'the_custom_logo' ) ) {
-                            the_custom_logo();
-                        }
-                    ?>
+				if( has_custom_logo() ) {
+					$logo     = get_theme_mod( 'custom_logo' );
+					$logo_url = wp_get_attachment_image_url( $logo, 'full' );
+				?>
+                        <a class="logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                            <img src="<?php echo $logo_url ?>">
+                        </a>
+                        <?php
+					} elseif( class_exists( 'Redux' ) ) {			
+				?>
+                        <a class="logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                            <?php 
+						$default_logo_html = '<img src="' . get_template_directory_uri() . '/images/je.png">';
+						echo apply_filters( 'iconstarter_display_logo', $default_logo_html );
+					?>
+                        </a>
+                        <?php } else { ?>
+                        <h2>
+                            <a class="logo-link"
+                                href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo bloginfo( 'name' ); ?></a>
+                        </h2>
+
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="hidden md:block flex-1">
@@ -45,13 +64,16 @@
                                 Phone Consultation +1 (514) 989-9700</a></li>
                     </ul>
                     <nav class="nav_menu !bg-transparent">
-                        <ul>
-                            <li><a class="active" href="#">Home</a></li>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Contact us</a></li>
-                            <li class="manu_search_btn"><a href="#">search</a></li>
-                        </ul>
+                        <?php if ( has_nav_menu( 'primary' ) ) : 
+                        wp_nav_menu(
+                            array(
+                                'theme_location'  => 'primary',
+                                'container_class' => 'container',
+                            )
+                        );
+                    ?>
+                        <?php endif; ?>
+
                     </nav>
                 </div>
                 <div class="menu_show">
@@ -63,20 +85,43 @@
             <div class="text-center flex justify-between">
                 <div class="logo">
                     <?php
-                        if ( function_exists( 'the_custom_logo' ) ) {
-                            the_custom_logo();
-                        }
-                    ?>
+				if( has_custom_logo() ) {
+					$logo     = get_theme_mod( 'custom_logo' );
+					$logo_url = wp_get_attachment_image_url( $logo, 'full' );
+				?>
+                    <a class="logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                        <img src="<?php echo $logo_url ?>">
+                    </a>
+                    <?php
+					} elseif( class_exists( 'Redux' ) ) {			
+				?>
+                    <a class="logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                        <?php 
+						$default_logo_html = '<img src="' . get_template_directory_uri() . '/images/je.png">';
+						echo apply_filters( 'iconstarter_display_logo', $default_logo_html );
+					?>
+                    </a>
+                    <?php } else { ?>
+                    <h2>
+                        <a class="logo-link"
+                            href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo bloginfo( 'name' ); ?></a>
+                    </h2>
+
+                    <?php } ?>
                 </div>
                 <span class="close_menu"><i class="ri-close-line"></i></span>
             </div>
             <nav class="my-6">
-                <ul class="flex flex-col">
-                    <li><a class="active" href="#">Home</a></li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact us</a></li>
-                </ul>
+                <?php if ( has_nav_menu( 'primary' ) ) : 
+                        wp_nav_menu(
+                            array(
+                                'theme_location'  => 'primary',
+                                'container_class' => 'container',
+                                'menu_class'      => 'flex flex-col',
+                            )
+                        );
+                    ?>
+                <?php endif; ?>
             </nav>
         </div>
     </header>

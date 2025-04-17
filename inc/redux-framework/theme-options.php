@@ -2,16 +2,17 @@
 /**
  * Redux option 
  */
+
 if ( ! class_exists( 'Redux' ) ) {
 	return;
 }
 
-if ( ! class_exists('jawad_Options' ) ) {
+if ( ! class_exists('Theme_Options' ) ) {
 	
 	/**
 	 * Theme options class. 
 	 */
-	class jawad_Options  {
+	class Theme_Options  {
 			
 		public function __construct() {
 			add_action( 'after_setup_theme', [$this, 'loading_config' ] );
@@ -26,10 +27,10 @@ if ( ! class_exists('jawad_Options' ) ) {
 				require_once $options_dir . '/' . $options_file;
 			}
 
-			$sections  	= apply_filters( 'jawad_options_sections_args', [ $general_options, $header_options, $blog_options, $footer_options, $social_options ] );
+			$sections  	= apply_filters( 'Theme_Options_sections_args', [ $general_options, $header_options, $blog_options, $footer_options, $social_options ] );
 			$theme 		= wp_get_theme();
 			
-			$opt_name 	= 'jawad_options';
+			$opt_name 	= 'theme_Options';
 			$args = [
 				'opt_name'			=> $opt_name,
 				'display_name'		=> $theme->get( 'Name' ),
@@ -51,9 +52,9 @@ if ( ! class_exists('jawad_Options' ) ) {
 		}
 	}	
 
-	new jawad_Options();
+	new Theme_Options();
 }
 
-if( ! array_key_exists( 'jawad_options' , $GLOBALS ) ) {
-	$GLOBALS['jawad_options'] = get_option( 'jawad_options', array() );
+if( ! array_key_exists( 'Theme_Options' , $GLOBALS ) ) {
+	$GLOBALS['Theme_Options'] = get_option( 'Theme_Options', array() );
 }

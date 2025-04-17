@@ -45,9 +45,15 @@ h6 {
 .post-item:hover .title {
   @apply text-primary;
 }
+.logo {
+  @apply max-w-[200px];
+}
 /* header style #1 */
 header.style1 .head_top {
   @apply hidden md:block border-b border-t-4 border-t-primary mb-2;
+}
+header.style1 .top_text a {
+  @apply font-semibold hover:text-primary;
 }
 header.style1 .social {
   @apply flex space-x-3 border-l pl-3 ml-3 py-3;

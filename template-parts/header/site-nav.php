@@ -23,7 +23,7 @@
                 <a class="logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <?php 
 						$default_logo_html = '<img src="' . get_template_directory_uri() . '/images/je.png">';
-						echo apply_filters( 'wptb_display_logo', $default_logo_html );
+						echo apply_filters( 'iconstarter_display_logo', $default_logo_html );
 					?>
                 </a>
                 <?php } else { ?>

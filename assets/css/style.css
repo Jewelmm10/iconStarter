@@ -3246,6 +3246,10 @@ h6 {
   color: rgb(102 210 206 / var(--tw-text-opacity));
 }
 
+.logo {
+  max-width: 200px;
+}
+
 /* header style #1 */
 
 header.style1 .head_top {
@@ -3261,6 +3265,15 @@ header.style1 .head_top {
   header.style1 .head_top {
     display: block;
   }
+}
+
+header.style1 .top_text a {
+  font-weight: 600;
+}
+
+header.style1 .top_text a:hover {
+  --tw-text-opacity: 1;
+  color: rgb(102 210 206 / var(--tw-text-opacity));
 }
 
 header.style1 .social {
