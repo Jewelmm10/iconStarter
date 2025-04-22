@@ -61,7 +61,7 @@ final class icon_starter {
         
         new ICON_STARTER\Inc\THEME();
         new ICON_STARTER\Inc\ASSETS();
-        new ICON_STARTER\Inc\Elementor\ELEMENTORADDONS();
+        new ICON_STARTER\Inc\Elementor\ADDONS();
     }
 }
 
@@ -81,20 +81,20 @@ icon_starter();
 function form_shortcode() {
     ob_start();
     ?>
-    <form method="post">
-        <p>
-            <label for="username">Username:</label>
-            <input type="text" name="korim2_username" required />
-        </p>
-        <p>
-            <label for="email">Email:</label>
-            <input type="email" name="korim2_email" required />
-        </p>
-        <p>
-            <button type="submit" name="form_submit">Submit</button>
-        </p>
-    </form>
-    <?php
+<form method="post">
+    <p>
+        <label for="username">Username:</label>
+        <input type="text" name="korim2_username" required />
+    </p>
+    <p>
+        <label for="email">Email:</label>
+        <input type="email" name="korim2_email" required />
+    </p>
+    <p>
+        <button type="submit" name="form_submit">Submit</button>
+    </p>
+</form>
+<?php
     return ob_get_clean();
 }
 add_shortcode('text_form', 'form_shortcode');

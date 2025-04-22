@@ -99,11 +99,41 @@ if ( ! function_exists( 'rx_apply_top_bar_text' ) ) {
 if ( ! function_exists( 'rx_apply_top_social_icons' ) ) {
     function rx_apply_top_social_icons() {
         global $theme_Options;
+        if ( isset( $theme_Options['top_social_icons'] ) ) {
+            $social_icons = $theme_Options['top_social_icons'];
+        } else {
+            $social_icons = array();
+        }
+            
+        return $social_icons;
+    }
+}
+/**
+ * Display searchbar
+ */
+if ( ! function_exists('rx_apply_searchbar_switch' ) ) {
+    function rx_apply_searchbar_switch( $enable ){
+       global $theme_Options;
+ 
+       if ( isset( $theme_Options['searchbar_enable'] ) ) {
+           $enable = $theme_Options['searchbar_enable'];
+       }
 
-        if ( isset( $theme_Options['icon'] ) ) {
-            $socials = $theme_Options['icon'];
-        }        
-        return $theme_Options;
+       return $enable;
+    }
+}
+/**
+ * Display searchbar text
+ */
+if ( ! function_exists('rx_apply_searchbar_text' ) ) {
+    function rx_apply_searchbar_text( $text ){
+       global $theme_Options;
+ 
+       if ( isset( $theme_Options['searchbar_text'] ) ) {
+           $text = $theme_Options['searchbar_text'];
+       }
+
+       return $text;
     }
 }
 /**
@@ -129,20 +159,20 @@ if ( ! function_exists('rx_apply_header_style' ) ) {
        global $theme_Options;
  
        if ( isset( $theme_Options['header_style'] ) ) {
-            $header_style = $theme_Options['header_style'];
+            $text = $theme_Options['header_style'];
         }
-        return $header_style;
+        return $text;
     }
 }
 /**
  * Display header call us icon
  */
-if ( ! function_exists( 'rx_apply_header_call_us_icon' ) ) {
-    function rx_apply_header_call_us_icon( $text ) {
+if ( ! function_exists( 'rx_apply_header_call_text' ) ) {
+    function rx_apply_header_call_text( $text ) {
         global $theme_Options;
 
-        if ( isset( $theme_Options['header_call_us_icon'] ) ) {
-            $text = $theme_Options['header_call_us_icon'];
+        if ( isset( $theme_Options['header_call_text'] ) ) {
+            $text = $theme_Options['header_call_text'];
         }
 
         return $text;
@@ -209,7 +239,7 @@ if ( ! function_exists( 'rx_apply_blog_sidebar' ) ) {
 }
 
 /**
- * Display signle page sidebar
+ * Display single page sidebar
  */
 if ( ! function_exists( 'rx_apply_single_post_layout' ) ) {
     function rx_apply_single_post_layout( $sidebar ) {
@@ -256,135 +286,13 @@ if ( ! function_exists( 'rx_apply_footer_style') ) {
      }
 }
 /**
- * Display footer contact 
+ * Display footer address switch 
  */
-if ( ! function_exists( 'rx_apply_footer_contact_switch') ) {
-    function rx_apply_footer_contact_switch( $enable ) {
+if ( ! function_exists( 'rx_apply_footer_address_switch') ) {
+    function rx_apply_footer_address_switch( $enable ) {
         global $theme_Options;
-        if ( isset( $theme_Options['footer_contact_enable'] ) ) {
-            $enable = $theme_Options['footer_contact_enable'];
-        }
-
-        return $enable;
-    }
-}
-
-/**
- * Display footer call us 
- */
-if ( ! function_exists( 'rx_apply_footer_call_us_icon') ) {
-    function rx_apply_footer_call_us_icon( $icon ) {
-        global $theme_Options;
-        if ( isset( $theme_Options['footer_call_us_icon'] ) ) {
-            $icon = $theme_Options['footer_call_us_icon'];
-        }
-
-        return $icon;
-    }
-}
-
-if ( ! function_exists( 'rx_apply_footer_call_us_number') ) {
-    function rx_apply_footer_call_us_number( $number ) {
-        global $theme_Options;
-        if ( isset( $theme_Options['footer_call_us_number'] ) ) {
-            $number = $theme_Options['footer_call_us_number'];
-        }
-
-        return $number;
-    }
-}
-
-if ( ! function_exists( 'rx_apply_footer_call_us_text') ) {
-    function rx_apply_footer_call_us_text( $text ) {
-        global $theme_Options;
-        if ( isset( $theme_Options['footer_call_us_text'] ) ) {
-            $text = $theme_Options['footer_call_us_text'];
-        }
-
-        return $text;
-    }
-}
-
-/**
- * Display footer email 
- */
-if ( ! function_exists( 'rx_apply_footer_email_icon') ) {
-    function rx_apply_footer_email_icon( $icon ) {
-        global $theme_Options;
-        if ( isset( $theme_Options['footer_email_icon'] ) ) {
-            $icon = $theme_Options['footer_email_icon'];
-        }
-
-        return $icon;
-    }
-}
-
-if ( ! function_exists( 'rx_apply_footer_email') ) {
-    function rx_apply_footer_email( $email ) {
-        global $theme_Options;
-        if ( isset( $theme_Options['footer_email'] ) ) {
-            $email = $theme_Options['footer_email'];
-        }
-
-        return $email;
-    }
-}
-
-if ( ! function_exists( 'rx_apply_footer_email_text') ) {
-    function rx_apply_footer_email_text( $text ) {
-        global $theme_Options;
-        if ( isset( $theme_Options['footer_email_text'] ) ) {
-            $text = $theme_Options['footer_email_text'];
-        }
-
-        return $text;
-    }
-}
-
-/**
- * Display footer address
- */
-if ( ! function_exists( 'rx_apply_footer_address_icon') ) {
-    function rx_apply_footer_address_icon( $icon ) {
-        global $theme_Options;
-        if ( isset( $theme_Options['footer_address_icon'] ) ) {
-            $icon = $theme_Options['footer_address_icon'];
-        }
-
-        return $icon;
-    }
-}
-
-if ( ! function_exists( 'rx_apply_footer_address') ) {
-    function rx_apply_footer_address( $address ) {
-        global $theme_Options;
-        if ( isset( $theme_Options['footer_address'] ) ) {
-            $address = $theme_Options['footer_address'];
-        }
-
-        return $address;
-    }
-}
-
-if ( ! function_exists( 'rx_apply_footer_address_text') ) {
-    function rx_apply_footer_address_text( $text ) {
-        global $theme_Options;
-        if ( isset( $theme_Options['footer_address_text'] ) ) {
-            $text = $theme_Options['footer_address_text'];
-        }
-
-        return $text;
-    }
-}
-
-/**
- * Display footer logo
- */
-if ( ! function_exists( 'rx_apply_footer_logo_switch') ) {
-    function rx_apply_footer_logo_switch( $enable ) {
-        global $theme_Options;
-        if ( isset( $theme_Options['footer_logo_enable'] ) ) {
-            $enable = $theme_Options['footer_logo_enable'];
+        if ( isset( $theme_Options['footer_address_enable'] ) ) {
+            $enable = $theme_Options['footer_address_enable'];
         }
 
         return $enable;
@@ -399,37 +307,149 @@ if ( ! function_exists( 'rx_apply_footer_logo') ) {
         global $theme_Options;
         if ( isset( $theme_Options['footer_logo']['url'] ) ) {
 
-            $logo = '<img src="' . $theme_Options['footer_logo']['url'] . '" class="footer_logo" alt="Mohammad-Jewel">';           
+            $logo = '<img src="' . $theme_Options['footer_logo']['url'] . '" class="footer_logo">';           
         }
 
         return $logo;
     }
 }
 
+
 /**
- * Display footer logo
+ * Display footer media
  */
-if ( ! function_exists( 'rx_apply_footer_description') ) {
-    function rx_apply_footer_description( $description ) {
+if ( ! function_exists( 'rx_apply_footer_media1') ) {
+    function rx_apply_footer_media1( $media ) {
         global $theme_Options;
-        if ( isset( $theme_Options['f_desc'] ) ) {
-            $description = $theme_Options['f_desc'];           
+        if ( isset( $theme_Options['footer_media1']['url'] ) ) {
+
+            $media = '<img src="' . $theme_Options['footer_media1']['url'] . '" class="footer_logo">';  
+                     
         }
 
-        return $description;
+        return $media;
+    }
+}
+
+if ( ! function_exists( 'rx_footer_media_text1' ) ) {
+    function rx_footer_media_text1($text) {
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_media_title1'] ) ) {
+            $text = $theme_Options['footer_media_title1'];
+        }
+        return $text;
+    }
+}
+if ( ! function_exists( 'rx_apply_footer_media2') ) {
+    function rx_apply_footer_media2( $media ) {
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_media2']['url'] ) ) {
+
+            $media = '<img src="' . $theme_Options['footer_media2']['url'] . '" class="footer_logo">';  
+                     
+        }
+
+        return $media;
+    }
+}
+
+if ( ! function_exists( 'rx_footer_media_text2' ) ) {
+    function rx_footer_media_text2($text) {
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_media_title2'] ) ) {
+            $text = $theme_Options['footer_media_title2'];
+        }
+        return $text;
     }
 }
 
 /**
- * Display footer social
+ * Display footer section title
  */
-if ( ! function_exists( 'rx_footer_social_icons_switch' ) ) {
-    function rx_footer_social_icons_switch($enable) {
+if ( ! function_exists( 'rx_apply_address_sec_title') ) {
+    function rx_apply_address_sec_title( $text ) {
         global $theme_Options;
-        if ( isset( $theme_Options['show_footer_social_icons'] ) ) {
-            $enable = $theme_Options['show_footer_social_icons'];
+        if ( isset( $theme_Options['address_sec_title'] ) ) {
+            $text = $theme_Options['address_sec_title'];
         }
-        return $enable;
+
+        return $text;
+    }
+}
+/**
+ * Display footer address
+ */
+if ( ! function_exists( 'rx_apply_footer_details') ) {
+    function rx_apply_footer_details( $text ) {
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_details'] ) ) {
+            $text = $theme_Options['footer_details'];
+        }
+
+        return $text;
+    }
+}
+
+if ( ! function_exists( 'rx_apply_footer_address') ) {
+    function rx_apply_footer_address( $text ) {
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_address'] ) ) {
+            $text = $theme_Options['footer_address'];
+        }
+
+        return $text;
+    }
+}
+
+if ( ! function_exists( 'rx_apply_footer_number') ) {
+    function rx_apply_footer_number( $number ) {
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_number'] ) ) {
+            $number = $theme_Options['footer_number'];
+        }
+
+        return $number;
+    }
+}
+
+if ( ! function_exists( 'rx_apply_footer_schedule') ) {
+    function rx_apply_footer_schedule( $text ) {
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_schedule'] ) ) {
+            $text = $theme_Options['footer_schedule'];
+        }
+
+        return $text;
+    }
+}
+
+/**
+ * Display footer call us 
+ */
+if ( ! function_exists( 'rx_apply_footer_email') ) {
+    function rx_apply_footer_email( $email ) {
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_email'] ) ) {
+            $email = $theme_Options['footer_email'];
+        }
+
+        return $email;
+    }
+}
+
+/**
+ * footer social media
+ */
+if ( ! function_exists( 'rx_apply_footer_social' ) ) {
+    function rx_apply_footer_social() {
+        global $theme_Options;
+        if ( isset( $theme_Options['footer_social_media'] ) ) {
+            $social_icons = $theme_Options['footer_social_media'];
+        } else {
+            $social_icons = array();
+        }
+            
+        return $social_icons;
     }
 }
 
@@ -449,71 +469,12 @@ if ( ! function_exists( 'rx_footer_credit_switch' ) ) {
 /**
  * Display footer credit block
  */
-if ( ! function_exists( 'rx_footer_credit' ) ) {
-    function rx_footer_credit($text) {
+if ( ! function_exists( 'rx_apply_footer_credit' ) ) {
+    function rx_apply_footer_credit($text) {
         global $theme_Options;
         if ( isset( $theme_Options['footer_credit'] ) ) {
             $text = $theme_Options['footer_credit'];
         }
         return $text;
-    }
-}
-
-/**
- * Display social share icons
- */
-if ( ! function_exists( 'rx_apply_social_networks' ) ) {
-    function rx_apply_social_networks( $social_icons ) {
-        global $theme_Options;
-
-        $social_icons = array(
-            'fb_link'      => array(
-                'icon'      => 'fab fa-facebook',
-                'id'        => 'linkedin_link',
-            ),
-            'twitter_link'      => array(
-                'icon'      => 'fab fa-twitter',
-                'id'        => 'linkedin_link',
-            ),
-            'linkedin_link'      => array(
-                'icon'      => 'fab fa-linkedin',
-                'id'        => 'linkedin_link',
-            ),
-            'github_link'      => array(
-                'icon'      => 'fab fa-github',
-                'id'        => 'linkedin_link',
-            ),
-            'pinterest_link'      => array(
-                'icon'      => 'fab fa-pinterest',
-                'id'        => 'linkedin_link',
-            ),
-              
-            'share_fb'      => array(
-                'icon'      => 'fab fa-facebook',
-                'id'        => 'facebook_link',
-            ),
-            'share_twitter'       => array(
-                'icon'      => 'fab fa-twitter',
-                'id'        => 'twitter_link',
-            ),
-            'share_linkedin'      => array(
-                'icon'      => 'fab fa-linkedin',
-                'id'        => 'linkedin_link',
-            ), 
-            'share_pinterest'     => array(
-                'icon'      => 'fab fa-pinterest',
-                'id'        => 'pinterest_link',
-            ),
-                     
-       
-        );
-       
-        foreach( $social_icons as $key => $social_icon ) {
-            if( ! empty( $theme_Options[$key] ) ) {
-                $social_icons[$key]['link'] = $theme_Options[$key];
-            }
-        }      
-
-        return $social_icons;
     }
 }

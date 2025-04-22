@@ -55,14 +55,17 @@
                     </div>
                 </div>
                 <div class="hidden md:block flex-1">
-                    <ul class="flex justify-end border-b border-l">
-                        <li><a class="block px-3.5 py-2 text-sm text-gray-700 hover:underline" href="#">About us</a>
-                        </li>
-                        <li><a class="block px-3.5 py-2 text-sm text-gray-700 hover:underline" href="#">Contact us</a>
-                        </li>
-                        <li><a class="block px-3.5 py-2 text-sm text-gray-700 hover:underline" href="tel:989-9700">Free
-                                Phone Consultation +1 (514) 989-9700</a></li>
-                    </ul>
+
+                    <?php 
+                        if ( has_nav_menu( 'top_menu' ) ) :
+                            wp_nav_menu(
+                                array(
+                                    'theme_location'  => 'top_menu',
+                                    'menu_class'      => 'top_menu flex justify-end border-b border-l',
+                                )
+                            );
+                        endif;
+                    ?>
                     <nav class="nav_menu !bg-transparent">
                         <?php if ( has_nav_menu( 'primary' ) ) : 
                         wp_nav_menu(
@@ -71,8 +74,7 @@
                                 'container_class' => 'container',
                             )
                         );
-                    ?>
-                        <?php endif; ?>
+                     endif; ?>
 
                     </nav>
                 </div>

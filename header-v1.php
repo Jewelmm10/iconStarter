@@ -29,16 +29,19 @@
                 <div class="header-notice">
                     <p class="text-xs top_text"><?php echo apply_filters('icon_top_bar_text', ''); ?></p>
                 </div>
-                <?php $socials = apply_filters('icon_top_social_icons', '');
-                echo "<pre>";
-                    var_dump($socials['top_social_icons']);
-                echo "</pre>";
-                     
-                ?>
                 <div class="social">
-                    <a href="#"><i class="ri-facebook-fill"></i></a>
-                    <a href="#"><i class="ri-twitter-x-line"></i></a>
-                    <a href="#"><i class="ri-linkedin-fill"></i></a>
+                    <?php $socials = apply_filters('icon_top_social_icons', '');
+                        foreach ($socials as $key => $value) {
+                        if (!empty($value)) {                   
+                        ?>
+
+                    <a href="<?php echo $value; ?>"><i class="<?php echo $key; ?>"></i></a>
+                    <?php
+                            }
+                        }
+                     
+                    ?>
+
                 </div>
             </div>
         </div>
@@ -70,9 +73,14 @@
 
                     <?php } ?>
                 </div>
+                <?php 
+                    if ( apply_filters( 'icon_enable_searchbar_switch', true ) ) {
+                   
+                ?>
                 <form action="" method="get" class="search_product">
                     <input id="search_input" class="input_search" type="text"
-                        placeholder="Search by name, category, brand" name="s" id="keyword">
+                        placeholder="<?php echo $text = apply_filters('icon_searchbar_text',''); ?>" name="s"
+                        id="keyword">
                     <input type="hidden" name="post_type" value="product" />
                     <button type="submit" class="search_btn"><i class="text-gray-800 ri-search-line"></i></button>
                     <div class="search_result">
@@ -81,17 +89,24 @@
                         </ul>
                     </div>
                 </form>
+                <?php } ?>
                 <div class="hidden md:flex divide-x-2">
+                    <?php
+                        $enable = apply_filters( 'icon_enabled_header_call_section', true ); 
+                        if( $enable ) {
+                    ?>
                     <div class="w-1/2">
                         <div class="flex items-center">
                             <i class="text-2xl text-primary mr-3 ri-phone-line"></i>
                             <div class="text flex flex-col">
-                                <p class="text-sm">Call Us Now</p>
-                                <strong class="text-sm">01918762310</strong>
+                                <p class="text-sm"><?php echo $text = apply_filters('icon_header_call_text',''); ?></p>
+                                <strong
+                                    class="text-sm"><?php echo $text = apply_filters('icon_header_call_us_number',''); ?></strong>
                             </div>
                         </div>
                     </div>
                     <?php
+                        }
                         $enable = apply_filters( 'icon_header_account_enable', true ); 
                         if( $enable ) {
                     ?>

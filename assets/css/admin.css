@@ -2,21 +2,21 @@
             Selector section on widget
 =================================================*/
 .widget-content .selector-labels label {
-    display: inline-block;
-    padding: 10px 5px 0;
-    position: relative;
-    max-width: 50%;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-  }
-  
-  .widget-content .selector-labels label.selector-selected:after {
-    content: "";
-    height: 35px;
-    width: 35px;
-    right: 0;
-    top: 0;
-    position: absolute;
-    background: url(../img/selected.png) no-repeat right top;
-  }
+  display: inline-block;
+  padding: 10px 5px 0;
+  position: relative;
+  max-width: 50%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.widget-content .selector-labels label.selector-selected:after {
+  content: "";
+  height: 35px;
+  width: 35px;
+  right: 0;
+  top: 0;
+  position: absolute;
+  background: url(../img/selected.png) no-repeat right top;
+}

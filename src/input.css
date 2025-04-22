@@ -105,6 +105,9 @@ header.style1 .search {
 }
 /* header style #1 */
 /* header style #2 */
+header.style2 .top_menu a {
+  @apply block px-3.5 py-2 text-sm text-gray-700 hover:underline;
+}
 header.style2 .nav_menu {
   @apply hidden md:block border-l;
 }

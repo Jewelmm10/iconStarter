@@ -20,14 +20,14 @@ if ( ! class_exists('Theme_Options' ) ) {
 
 		public function loading_config() {
 
-			$options 		= array( 'general', 'header', 'blog', 'footer', 'social' );
+			$options 		= array( 'general', 'header', 'footer', 'blog' );
 			$options_dir 	= get_template_directory() . '/inc/redux-framework/options';
 			foreach ( $options as $option ) {
 				$options_file = $option . '-options.php';
 				require_once $options_dir . '/' . $options_file;
 			}
 
-			$sections  	= apply_filters( 'Theme_Options_sections_args', [ $general_options, $header_options, $blog_options, $footer_options, $social_options ] );
+			$sections  	= apply_filters( 'Theme_Options_sections_args', [ $general_options, $header_options, $footer_options, $blog_options ] );
 			$theme 		= wp_get_theme();
 			
 			$opt_name 	= 'theme_Options';

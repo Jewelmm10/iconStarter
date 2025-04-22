@@ -52,9 +52,14 @@
 
                     <?php } ?>
                 </div>
+                <?php 
+                    if ( apply_filters( 'icon_enable_searchbar_switch', true ) ) {
+                   
+                ?>
                 <form action="" method="get" class="search_product">
                     <input id="search_input" class="input_search" type="text"
-                        placeholder="Search by name, category, brand" name="s" id="keyword">
+                        placeholder="<?php echo $text = apply_filters('icon_searchbar_text',''); ?>" name="s"
+                        id="keyword">
                     <input type="hidden" name="post_type" value="product" />
                     <button type="submit" class="search_btn"><i class="text-gray-800 ri-search-line"></i></button>
                     <div class="search_result">
@@ -63,6 +68,7 @@
                         </ul>
                     </div>
                 </form>
+                <?php } ?>
                 <div class="hidden md:flex">
                     <a href="#">Sign In/ Sign Up</a>
                 </div>

@@ -85,8 +85,9 @@ class THEME {
 
 		// Register Nav Menus
 		$nav_menus = array(
-			'primary'     =>  __( 'Header Menu', 'iconStarter' ),
-			'use_link'    =>  __( 'Useful Link', 'iconStarter' ),
+			'primary'        =>  __( 'Header Menu', 'iconStarter' ),
+			'top_menu'       =>  __( 'Header Top Menu', 'iconStarter' ),
+			'useful_link'    =>  __( 'Useful Link', 'iconStarter' ),
 		);
 		register_nav_menus( $nav_menus );
 	}

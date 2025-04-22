@@ -3480,6 +3480,22 @@ header.style1 .search {
 
 /* header style #2 */
 
+header.style2 .top_menu a {
+  display: block;
+  padding-left: 0.875rem;
+  padding-right: 0.875rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+
+header.style2 .top_menu a:hover {
+  text-decoration-line: underline;
+}
+
 header.style2 .nav_menu {
   display: none;
   border-left-width: 1px;
