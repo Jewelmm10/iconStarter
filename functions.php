@@ -128,3 +128,14 @@ function handle_form_submit() {
         $mysqli->close();
     }
 }
+
+function my_enqueue_slick_slider_assets() {
+    // Only load on frontend and Elementor editor
+    if ( is_admin() && ! \Elementor\Plugin::$instance->editor->is_edit_mode() ) return;
+
+    wp_enqueue_style( 'slick-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' );
+    wp_enqueue_script( 'slick-js', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', ['jquery'], null, true );
+    wp_enqueue_script( 'slick-init', get_template_directory_uri() . '/assets/js/slick-init.js', ['slick-js'], null, true );
+}
+add_action( 'wp_enqueue_scripts', 'my_enqueue_slick_slider_assets' );
+

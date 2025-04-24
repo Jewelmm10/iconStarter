@@ -5,3 +5,6 @@ div#elementor-panel-categories {
 div#elementor-panel-category-icon-elements {
   order: -1;
 }
+img.eael-image-option {
+  border: 1px solid #000;
+}
