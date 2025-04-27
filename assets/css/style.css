@@ -2494,11 +2494,6 @@ video {
   padding-right: 0.75rem;
 }
 
-.px-3\.5 {
-  padding-left: 0.875rem;
-  padding-right: 0.875rem;
-}
-
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -2775,11 +2770,6 @@ video {
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
-}
-
-.text-gray-700 {
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
 .text-gray-800 {
@@ -3248,6 +3238,11 @@ h6 {
 
 .logo {
   max-width: 200px;
+}
+
+.main-sidebar .sticky-col {
+  position: sticky;
+  top: 0px;
 }
 
 /* header style #1 */

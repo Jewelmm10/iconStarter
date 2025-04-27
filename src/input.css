@@ -48,6 +48,9 @@ h6 {
 .logo {
   @apply max-w-[200px];
 }
+.main-sidebar .sticky-col {
+  @apply sticky top-0;
+}
 /* header style #1 */
 header.style1 .head_top {
   @apply hidden md:block border-b border-t-4 border-t-primary mb-2;

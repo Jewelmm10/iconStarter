@@ -31,3 +31,4 @@ require get_template_directory() . '/inc/woocommerce/template-tags.php';
 require get_template_directory() . '/inc/redux-framework/functions.php';
 require get_template_directory() . '/inc/redux-framework/hooks.php';
 require get_template_directory() . '/inc/redux-framework/theme-options.php';
+require get_template_directory() . '/inc/elementor/extend-section.php';

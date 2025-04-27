@@ -94,29 +94,6 @@
       ],
     });
 
-    // $('.category').slick({
-    //   dots: false,
-    //   infinite: true,
-    //   speed: 300,
-    //   slidesToShow: 5,
-    //   responsive: [
-    //     {
-    //       breakpoint: 768,
-    //       settings: {
-    //         slidesToShow: 3,
-    //         slidesToScroll: 1
-    //       }
-    //     },
-    //     {
-    //       breakpoint: 576,
-    //       settings: {
-    //         slidesToShow: 2,
-    //         slidesToScroll: 1
-    //       }
-    //     }
-    //   ]
-    // });
-
     // filter open
     $(".filter-title").on("click", function (e) {
       $(".filter-list").removeClass("h-full");
@@ -136,65 +113,7 @@
     });
   }); //document ready
 
-  /* ====================
-   WooComerce Quantity
-   ====================== */
-  function custom_quantity_icon() {
-    $("#main .quantity").append(
-      '<span class="quantity-icon"><i class="quantity-down">-</i><i class="quantity-up">+</i></span>'
-    );
-    $(".quantity-up").on("click", function () {
-      $(this).parents(".quantity").find('input[type="number"]').get(0).stepUp();
-    });
-    $(".quantity-down").on("click", function () {
-      $(this)
-        .parents(".quantity")
-        .find('input[type="number"]')
-        .get(0)
-        .stepDown();
-    });
-    $(".quantity-icon i").on("click", function () {
-      var quantity_number = $(this)
-        .parents(".quantity")
-        .find('input[type="number"]')
-        .val();
-      var add_to_cart_button = $(this)
-        .parents(".product, .woocommerce-product-inner")
-        .find(".add_to_cart_button");
-      add_to_cart_button.attr("data-quantity", quantity_number);
-      add_to_cart_button.attr(
-        "href",
-        "?add-to-cart=" +
-          add_to_cart_button.attr("data-product_id") +
-          "&quantity=" +
-          quantity_number
-      );
-    });
-    $(".woocommerce-cart-form .actions .button").removeAttr("disabled");
-  }
-  custom_quantity_icon();
-
-  $(".search_product").each(function () {
-    var form = $(this),
-      search = $(".input_search");
-    search.keyup(function () {
-      if ($(this).val().length >= 3) {
-        $(".search_result").show();
-        var query = $(this).val();
-        $.ajax({
-          url: mugdho_options.ajaxurl,
-          type: "POST",
-          data: {
-            action: "search_product",
-            keyword: query,
-          },
-          success: function (data) {
-            $(".search_result").html(data);
-          },
-        });
-      }
-    });
-  });
+  // search product
 
   $(document).on("click", function (e) {
     if ($(e.target).attr("class") != "search_product") {
@@ -208,5 +127,16 @@
   });
   $(".cart_close").on("click", function () {
     $(".mincart_wrap").toggleClass("on");
+  });
+  // sticky sidebar
+  jQuery(document).ready(function ($) {
+    $(".main-sidebar.isSticky .elementor-widget-wrap").each(function () {
+      if ($(this).find(".sticky-col").length === 0) {
+        var $widgets = $(this).children(".elementor-widget");
+        if ($widgets.length > 0) {
+          $widgets.wrapAll('<div class="sticky-col"></div>');
+        }
+      }
+    });
   });
 })(jQuery);

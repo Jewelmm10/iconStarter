@@ -262,8 +262,9 @@ class Icon_Posts extends Widget_Base {
                     'label_block' => true,
                     'toggle'      => false,
                     'image_choose'=> true,
+                    'render_type' => 'image',
                 ]
-            );
+        );
 
         $this->end_controls_section();
     }
