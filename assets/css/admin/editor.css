@@ -8,3 +8,17 @@ div#elementor-panel-category-icon-elements {
 img.eael-image-option {
   border: 1px solid #000;
 }
+.elementor-choices.icon-image-choices {
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.elementor-choices.icon-image-choices .elementor-choices-label {
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 5px;
+}
+.elementor-choices.icon-image-choices .elementor-choices-label img {
+  image-rendering: pixelated;
+}

@@ -1,5 +1,8 @@
 <?php
-namespace ICON_STARTER\Inc\Elementor;
+//namespace ICON_STARTER\Inc\Elementor;
+
+use Elementor\Base_Data_Control;
+use Elementor\Control_Choose;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -11,23 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * A base control for creating choose control. Displays radio buttons styled as
  * groups of buttons with icons for each option.
  *
- * @since 1.0.0
+ * @since 5.6.0
  */
-class Icon_choose extends Control_Choose {
-
-	/**
-	 * Get choose control type.
-	 *
-	 * Retrieve the control type, in this case `choose`.
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 *
-	 * @return string Control type.
-	 */
-	public function get_type() {
-		return 'choose';
-	}
+class Icon_Choose extends Control_Choose {
 
 	/**
 	 * Render choose control output in the editor.
@@ -36,7 +25,7 @@ class Icon_choose extends Control_Choose {
 	 * template. The variables for the class are available using `data` JS
 	 * object.
 	 *
-	 * @since 1.0.0
+	 * @since 5.6.0
 	 * @access public
 	 */
 	public function content_template() {
@@ -45,7 +34,7 @@ class Icon_choose extends Control_Choose {
 <div class="elementor-control-field">
     <label class="elementor-control-title">{{{ data.label }}}</label>
     <div class="elementor-control-input-wrapper">
-        <div class="elementor-choices">
+        <div class="elementor-choices {{ data.image_choose ? 'icon-image-choices' : 'icon-choices' }}">
             <# _.each( data.options, function( options, value ) { #>
                 <input id="<?php $this->print_control_uid( $control_uid_input_type ); ?>" type="radio"
                     name="elementor-choose-{{ data.name }}-{{ data._cid }}" value="{{ value }}">
@@ -53,9 +42,9 @@ class Icon_choose extends Control_Choose {
                     for="<?php $this->print_control_uid( $control_uid_input_type ); ?>"
                     data-tooltip="{{ options.title }}" title="{{ options.title }}">
                     <# if( options.image ){ #>
-                        <img class="eael-image-option" src="{{ options.image }}" alt="{{ options.title }}" />
+                        <img class="icon-image-option" src="{{ options.image }}" alt="{{ options.title }}" />
                         <# } else if( options.text ){ #>
-                            <span class="eael-text-option" alt="{{ options.title }}">{{{ options.text }}}</span>
+                            <span class="icon-text-option" alt="{{ options.title }}">{{{ options.text }}}</span>
                             <# } else{ #>
                                 <i class="{{ options.icon }}" aria-hidden="true"></i>
                                 <# } #>
@@ -78,7 +67,7 @@ class Icon_choose extends Control_Choose {
 	 * Retrieve the default settings of the choose control. Used to return the
 	 * default settings while initializing the choose control.
 	 *
-	 * @since 1.0.0
+	 * @since 5.6.0
 	 * @access protected
 	 *
 	 * @return array Control default settings.
@@ -90,3 +79,12 @@ class Icon_choose extends Control_Choose {
 		];
 	}
 }
+
+
+
+
+add_action( 'elementor/controls/controls_registered', function( $controls_manager ) {
+    
+
+    $controls_manager->register_control('choose', new Icon_Choose() );
+});

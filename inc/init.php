@@ -32,3 +32,4 @@ require get_template_directory() . '/inc/redux-framework/functions.php';
 require get_template_directory() . '/inc/redux-framework/hooks.php';
 require get_template_directory() . '/inc/redux-framework/theme-options.php';
 require get_template_directory() . '/inc/elementor/extend-section.php';
+require get_template_directory() . '/inc/elementor/class-icon_choose.php';

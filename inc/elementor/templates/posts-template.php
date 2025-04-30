@@ -31,7 +31,7 @@ if (!function_exists('icon_post_show')) {
                     <div class="thumb-container">
                         <a class="relative before:bg-linear-to-r before:bg-black/25 before:absolute before:inset-0 before:z-10"
                             href="<?php the_permalink(); ?>">
-                            <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>">
+                            <img class="icon-thumb" src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>">
                         </a>
                     </div>
                     <div class="meta-info absolute left-0 bottom-0 p-6 cursor-pointer z-20">
@@ -57,7 +57,8 @@ if (!function_exists('icon_post_show')) {
                         <div class="thumb-container">
                             <a class="relative before:bg-linear-to-r before:bg-black/25 before:absolute before:inset-0 before:z-10"
                                 href="<?php the_permalink(); ?>">
-                                <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>">
+                                <img class="icon-thumb" src="<?php echo esc_url($image); ?>"
+                                    alt="<?php the_title(); ?>">
                             </a>
                         </div>
                         <div class="meta-info absolute left-0 bottom-0 p-3 cursor-pointer z-20">
@@ -75,7 +76,8 @@ if (!function_exists('icon_post_show')) {
                             <div class="thumb-container h-[180px]">
                                 <a class="relative before:bg-linear-to-r before:bg-black/25 before:absolute before:inset-0 before:z-10"
                                     href="<?php the_permalink(); ?>">
-                                    <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>">
+                                    <img class="icon-thumb" src="<?php echo esc_url($image); ?>"
+                                        alt="<?php the_title(); ?>">
                                 </a>
                             </div>
                             <div class="meta-info absolute left-0 bottom-0 p-3 cursor-pointer z-20">

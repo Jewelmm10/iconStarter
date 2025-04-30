@@ -39,7 +39,7 @@ class ADDONS {
 
 
     private function include_widgets_files() {
-        $widgets = ['query', 'heading', 'posts'];
+        $widgets = ['featured', 'block-grid', 'large-block', 'posts'];
 
         $templates = ['posts', 'heading'];
 
@@ -71,9 +71,9 @@ class ADDONS {
         $this->include_widgets_files();
 
         $widget_classes = [
-            'query'         => 'Icon_Query_Widget',
-            'heading'       => 'icon_Heading_Widget',
-            'posts'         => 'Icon_Posts',
+            'featured'    => 'Icon_Featured',
+            'block_grid'  => 'Icon_Block_Grid',
+            'large_block' => 'Icon_Large_Block',
         ];
 
         foreach ($widget_classes as $class_name) {
